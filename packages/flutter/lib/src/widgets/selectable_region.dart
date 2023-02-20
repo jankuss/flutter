@@ -529,10 +529,11 @@ class SelectableRegionState extends State<SelectableRegion> with TextSelectionDe
  void _onAnyDragEnd(DragEndDetails details) {
    if (widget.selectionControls is! TextSelectionHandleControls) {
     _selectionOverlay!.hideMagnifier();
-    _selectionOverlay!.showToolbar();
+    _selectionOverlay!.showToolbar(context: context);
    } else {
      _selectionOverlay!.hideMagnifier();
      _selectionOverlay!.showToolbar(
+       context: context,
        contextMenuBuilder: (BuildContext context) {
          return widget.contextMenuBuilder!(context, this);
        },
